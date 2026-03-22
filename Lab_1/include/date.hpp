@@ -20,22 +20,32 @@ struct MyDate {
     /* *
      * @brief overload input/output operation (>>, <<)
      *
-     * @param out/in
-     * @param f
+     * @param out/in left operand
+     * @param f right operand
      *
-     * @return ostream&/istrem&
+     * @return ostream/istream
      * */
     friend ostream &operator<<(ostream &out, const MyDate &date);
     friend istream &operator>>(istream &in, MyDate &date);
 
-    friend MyDate operator+(const MyDate &, int);
+    /* *
+     * @brief increase current date by n days
+     *
+     * @param date
+     * @param n
+     *
+     * increase day -> month -> year
+     *
+     * @return MyDate new date as a result of n days
+     * */
+    friend MyDate operator+(const MyDate &date, int n);
 
   private:
     int day, month, year;
 };
 
 /* *
- * @brief determine leap year
+ * @brief check if leap year or not
  *
  * @param y year
  *

@@ -19,9 +19,11 @@ struct MyFraction {
     void setBot(int n);
 
     /* *
-     * @brief divide `bot, top` by their GCD to acheve simplest form
+     * @brief simlify fraction
      *
      * @param void
+     *
+     * divide `bot, top` by their GCD(Greatest Common Divisor)
      *
      * @return void
      * */
@@ -30,10 +32,10 @@ struct MyFraction {
     /* *
      * @brief overload input/output operation (>>, <<)
      *
-     * @param out/in
-     * @param f
+     * @param out/in left operand
+     * @param f right operand
      *
-     * @return ostream&/istream&
+     * @return ostream/istream
      * */
     friend ostream &operator<<(ostream &out, const MyFraction &f);
     friend istream &operator>>(istream &, MyFraction &);
@@ -41,10 +43,10 @@ struct MyFraction {
     /* *
      * @brief overload arimethic operations (+,-,*,/)
      *
-     * @param f1
-     * @param f2
+     * @param f1 left operand
+     * @param f2 right operand
      *
-     * @return MyFraction a new fraction
+     * @return MyFraction a new fraction as a result of arimetic operations
      * */
     friend MyFraction operator+(const MyFraction &f1, const MyFraction &f2);
     friend MyFraction operator-(const MyFraction &f1, const MyFraction &f2);
@@ -54,8 +56,8 @@ struct MyFraction {
     /* *
      * @brief overload comparision operation (>)
      *
-     * @param f1
-     * @param f2
+     * @param f1 left operand
+     * @param f2 right operand
      *
      * @return bool true: f1>f2, false:f1<=f2
      * */
@@ -66,9 +68,11 @@ struct MyFraction {
 };
 
 /* *
- * @brief check if input include ONLY number
+ * @brief validate denominator/numerator
  *
  * @param inp input as string
+ *
+ * ensure only numbers included
  *
  * @return bool true: stoi(inp) succeed, false: otherwise
  * */

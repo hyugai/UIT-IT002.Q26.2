@@ -10,10 +10,10 @@ struct MyStudent {
     /* *
      * @brief overload input/output operation (>>, <<)
      *
-     * @param out/in
-     * @param f
+     * @param out/in left operand
+     * @param f right operand
      *
-     * @return ostream&/istrem&
+     * @return ostream/istrem
      * */
     friend ostream &operator<<(ostream &, const MyStudent &);
     friend istream &operator>>(istream &, MyStudent &);
