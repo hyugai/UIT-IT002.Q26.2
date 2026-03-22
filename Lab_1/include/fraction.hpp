@@ -8,16 +8,16 @@ using namespace std;
 
 struct MyFraction {
 
-    /* setter */
+    /*setter*/
     void setTop(int);
     void setBot(int);
 
-    /* simplify fuction*/
+    /*simplify top and bot*/
     void simplify();
 
-    /* `<<, >>` overloaded
-     * `const` avoids any modification
-     * `friend` grants permission to outside functions to access private members
+    /*`<<, >>, +, -, *, /, >` overloaded
+     *`const` avoids any modification
+     *`friend` grants permission to outside functions to access private members
      * */
     friend ostream &operator<<(ostream &, const MyFraction &);
     friend istream &operator>>(istream &, MyFraction &);
@@ -29,13 +29,13 @@ struct MyFraction {
 
   private:
     /*
-     * top: numerator
-     * bot: denominator
+     *top: numerator
+     *bot: denominator
      * */
     int top, bot;
 };
 
 /*
- * no letter or special character is included
+ *ensure no letter or special character be included
  * */
 bool isNumber(const string &);

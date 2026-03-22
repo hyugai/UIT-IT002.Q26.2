@@ -7,14 +7,14 @@ using namespace std;
 
 struct MyDate {
     /*
-     * setter
+     *setter
      * */
     void setDay(int);
     void setMonth(int);
     void setYear(int);
 
     /*
-     * `<<, >>` overloaded
+     *`<<, >>, +` overloaded
      * */
     friend ostream &operator<<(ostream &, const MyDate &);
     friend istream &operator>>(istream &, MyDate &);

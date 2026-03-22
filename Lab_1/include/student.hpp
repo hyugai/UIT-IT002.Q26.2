@@ -8,7 +8,7 @@ using namespace std;
 
 struct MyStudent {
     /*
-     * `<<, >>`  overloaded
+     *`<<, >>`  overloaded
      * */
     friend ostream &operator<<(ostream &, const MyStudent &);
     friend istream &operator>>(istream &, MyStudent &);
@@ -19,10 +19,10 @@ struct MyStudent {
 };
 
 /*
- * no number or special character included in student's name
+ *no number or special character included in student's name
  * */
 bool isNameValid(string);
 /*
- * score MUST range from 0-10
+ *score MUST range from 0-10
  * */
 bool isScoreValid(double);
