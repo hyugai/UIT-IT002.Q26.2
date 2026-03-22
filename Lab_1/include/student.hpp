@@ -7,8 +7,13 @@
 using namespace std;
 
 struct MyStudent {
-    /*
-     *`<<, >>`  overloaded
+    /* *
+     * @brief overload input/output operation (>>, <<)
+     *
+     * @param out/in
+     * @param f
+     *
+     * @return ostream&/istrem&
      * */
     friend ostream &operator<<(ostream &, const MyStudent &);
     friend istream &operator>>(istream &, MyStudent &);
@@ -18,11 +23,25 @@ struct MyStudent {
     double math, literature;
 };
 
-/*
- *no number or special character included in student's name
+/* *
+ * @brief validate name
+ *
+ * @param name
+ *
+ * name MUST NOT include any number or specical character
+ * each character MUST BE one in range 'a-z' OR 'A-Z' OR blank space
+ *
+ * @return bool true: valid name, false: otherwise
  * */
-bool isNameValid(string);
-/*
- *score MUST range from 0-10
+bool isNameValid(string name);
+
+/* *
+ * @brief validate score
+ *
+ * @param s
+ *
+ * score MUST be in range 0-10
+ *
+ * @return bool true: valid score, false: otherwise
  * */
-bool isScoreValid(double);
+bool isScoreValid(double s);
