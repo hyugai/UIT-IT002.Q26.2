@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/BT2.dir/link.d CMakeFiles/BT2.dir/BT2.cpp.o -o BT2  ../include/libFraction.a
