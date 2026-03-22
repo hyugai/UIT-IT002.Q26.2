@@ -12,10 +12,10 @@ struct MyFraction {
     void setTop(int);
     void setBot(int);
 
-    /* simplify */
+    /* simplify fuction*/
     void simplify();
 
-    /* `<<`, `>>` overloaded
+    /* `<<, >>` overloaded
      * `const` avoids any modification
      * `friend` grants permission to outside functions to access private members
      * */
@@ -35,4 +35,7 @@ struct MyFraction {
     int top, bot;
 };
 
+/*
+ * no letter or special character is included
+ * */
 bool isNumber(const string &);
