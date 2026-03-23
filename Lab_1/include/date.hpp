@@ -31,10 +31,10 @@ struct MyDate {
     /* *
      * @brief increase current date by n days
      *
+     * increase day -> month -> year
+     *
      * @param date
      * @param n
-     *
-     * increase day -> month -> year
      *
      * @return MyDate new date as a result of n days
      * */
@@ -47,12 +47,11 @@ struct MyDate {
 /* *
  * @brief check if leap year or not
  *
- * @param y year
- *
  * divided by 4 AND not by 100, OR divided by 400
  *
- * @return bool true: leap year, false: otherwise
+ * @param y year
  *
+ * @return bool true: leap year, false: otherwise
  * */
 bool isLeapYear(int y);
 
@@ -69,12 +68,12 @@ int getMaxDaysOfMonth(int m, int y);
 /* *
  * @brief validate input date
  *
+ * y greater than 0, m in range from 1 to 12, d greater than 0 and in range of
+ * month
+ *
  * @param d day
  * @param m month
  * @param y year
- *
- * y greater than 0, m in range from 1 to 12, d greater than 0 and in range of
- * month
  *
  * @return true: valid date, false: otherwise
  * */

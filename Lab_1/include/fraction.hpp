@@ -21,9 +21,9 @@ struct MyFraction {
     /* *
      * @brief simlify fraction
      *
-     * @param void
-     *
      * divide `bot, top` by their GCD(Greatest Common Divisor)
+     *
+     * @param void
      *
      * @return void
      * */
@@ -64,15 +64,16 @@ struct MyFraction {
     friend bool operator>(const MyFraction &, const MyFraction &);
 
   private:
-    int top, bot;
+    int top; ///< numerator
+    int bot; ///< denominator
 };
 
 /* *
  * @brief validate denominator/numerator
  *
- * @param inp input as string
- *
  * ensure only numbers included
+ *
+ * @param inp input as string
  *
  * @return bool true: stoi(inp) succeed, false: otherwise
  * */

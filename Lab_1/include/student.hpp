@@ -20,16 +20,16 @@ struct MyStudent {
 
   private:
     string name;
-    double math, literature;
+    double math, literature; ///< scores
 };
 
 /* *
  * @brief validate name
  *
- * @param name
- *
  * name MUST NOT include any number or specical character
  * each character MUST BE one in range 'a-z' OR 'A-Z' OR blank space
+ *
+ * @param name
  *
  * @return bool true: valid name, false: otherwise
  * */
@@ -38,9 +38,9 @@ bool isNameValid(string name);
 /* *
  * @brief validate score
  *
- * @param s
- *
  * score MUST be in range 0-10
+ *
+ * @param s
  *
  * @return bool true: valid score, false: otherwise
  * */
