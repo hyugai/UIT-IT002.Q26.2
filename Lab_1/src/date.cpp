@@ -23,11 +23,12 @@ ostream &operator<<(ostream &out, const MyDate &date) {
 }
 
 istream &operator>>(istream &in, MyDate &date) {
+    cout << "Nhap ngay, thang, nam:\n";
     int d, m, y;
     in >> d >> m >> y;
 
     while (!(isDateValid(d, m, y))) {
-        cout << "Enter again: ";
+        cout << "Nhap lai ngay, thang, nam:\n";
         in >> d >> m >> y;
     }
 

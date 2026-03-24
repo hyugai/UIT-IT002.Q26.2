@@ -5,12 +5,12 @@ using namespace std;
 
 int main() {
     MyFraction f1, f2;
-    cout << "Enter 1st fraction: " << endl;
+    cout << "Nhap phan so dau tien" << endl;
     cin >> f1;
-    cout << "Enter 2nd fraction:" << endl;
+    cout << "Nhap phan so thu hai" << endl;
     cin >> f2;
 
-    cout << "Greater fraction: ";
+    cout << "Phan so lon hon: ";
     if (f1 > f2) {
         cout << f1;
     } else {

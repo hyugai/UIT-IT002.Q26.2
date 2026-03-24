@@ -7,27 +7,27 @@
 using namespace std;
 
 ostream &operator<<(ostream &out, const MyStudent &stu) {
-    out << "Name: " << stu.name
-        << "\nAvg: " << (stu.literature + stu.math) / 2.0 << endl;
+    out << "Ten: " << stu.name << "\nDTB: " << (stu.literature + stu.math) / 2.0
+        << endl;
 
     return out;
 }
 
 istream &operator>>(istream &in, MyStudent &stu) {
     string n;
-    cout << "Enter name: ";
+    cout << "Nhap ten: ";
     getline(in, n);
     while (!(isNameValid(n))) {
-        cout << "Enter name again: ";
+        cout << "Nhap lai ten: ";
         getline(in, n);
     }
     stu.name = n;
 
-    cout << "Enter math & literature score: ";
+    cout << "Nhap diem toan, van: ";
     double m, l;
     in >> m >> l;
     while (!(isScoreValid(m) && isScoreValid(l))) {
-        cout << "Enter score again:";
+        cout << "Nhap lai diem toan, van: ";
         in >> m >> l;
     }
     stu.math = m;
@@ -45,6 +45,7 @@ bool isScoreValid(double s) {
 
     return res;
 }
+
 bool isNameValid(string name) {
     bool res{true};
     for (const char &c : name) {
