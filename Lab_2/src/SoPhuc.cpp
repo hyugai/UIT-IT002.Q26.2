@@ -98,9 +98,9 @@ SoPhuc SoPhuc::Thuong(SoPhuc const &sp) {
         kq.iAo = (this->iAo * sp.iThuc - this->iThuc * sp.iAo) / dMau;
     } else {
         cout << "Phép chia cho ";
+        kq.iThuc = 0;
+        kq.iAo = 0;
     }
-    kq.iThuc = 0;
-    kq.iAo = 0;
 
     return kq;
 }
