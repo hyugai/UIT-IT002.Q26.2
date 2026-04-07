@@ -6,7 +6,6 @@ using namespace std;
 
 /*
  * @brief Nhập vào phần thực (iThuc) và ảo (iAo) của số phức
- *
  * @return void
  * */
 void SoPhuc::Nhap() {
@@ -15,10 +14,8 @@ void SoPhuc::Nhap() {
     cout << "Nhap phan ao: ";
     cin >> iAo;
 }
-
 /*
  * @brief Xuất ra màn hình theo định dạng: a + bi
- *
  * return void
  * */
 void SoPhuc::Xuat() {
@@ -31,63 +28,47 @@ void SoPhuc::Xuat() {
         }
         cout << "(" << iAo << ")" << "i";
     }
-
     if (!iThuc && !iAo) {
         cout << 0;
     }
     cout << endl;
 }
-
 /*
  * @brief Tính tổng 2 số phức
- *
  * @param sp
- *
  * @return Số phức mới
  * */
 SoPhuc SoPhuc::Tong(SoPhuc const &sp) {
     SoPhuc kq;
     kq.iThuc = this->iThuc + sp.iThuc;
     kq.iAo = this->iAo + sp.iAo;
-
     return kq;
 }
-
 /*
  * @brief Tính hiệu 2 số phức
- *
  * @param sp
- *
  * @return Số phức mới
  * */
 SoPhuc SoPhuc::Hieu(SoPhuc const &sp) {
     SoPhuc kq;
     kq.iThuc = this->iThuc - sp.iThuc;
     kq.iAo = this->iAo - sp.iAo;
-
     return kq;
 }
-
 /*
  * @brief Tính tích 2 số phức
- *
  * @param sp
- *
  * @return Số phức mới
  * */
 SoPhuc SoPhuc::Tich(SoPhuc const &sp) {
     SoPhuc kq;
     kq.iThuc = this->iThuc * sp.iThuc - this->iAo * sp.iAo;
     kq.iAo = this->iThuc * sp.iAo + this->iAo * sp.iThuc;
-
     return kq;
 }
-
 /*
  * @brief Tính thương 2 số phức
- *
  * @param sp
- *
  * @return Số phức mới
  * */
 SoPhuc SoPhuc::Thuong(SoPhuc const &sp) {
@@ -101,6 +82,5 @@ SoPhuc SoPhuc::Thuong(SoPhuc const &sp) {
         kq.iThuc = 0;
         kq.iAo = 0;
     }
-
     return kq;
 }

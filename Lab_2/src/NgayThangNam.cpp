@@ -7,7 +7,6 @@ using namespace std;
 /*
  * @brief Nhập năm (iNam), tháng (iThang), ngày (iNgay) -> KIỂM TRA, NHẬP LẠI
  * nếu không hợp lệ
- *
  * @return void
  * */
 void NgayThangNam::Nhap() {
@@ -30,14 +29,12 @@ void NgayThangNam::Nhap() {
 
 /*
  * @brief Xuất ra màn hình theo định dạng: dd/mm/yyyy
- *
  * @return void
  * */
 void NgayThangNam::Xuat() { printf("%02d/%02d/%d\n", iNgay, iThang, iNam); }
 
 /*
  * @brief Tính ngày tiếp theo bằng cách tăng ngày lên 1
- *
  * return NgayThangNam
  * */
 NgayThangNam NgayThangNam::NgayThangNamTiepTheo() {
@@ -59,10 +56,8 @@ NgayThangNam NgayThangNam::NgayThangNamTiepTheo() {
 
 /*
  * @brief Xác định tổng số ngày trong tháng
- *
  * @param iThang
  * @param iNam
- *
  * @return 28(Tháng 2, Không nhuận), 29(Tháng 2, Nhuận),
  * 30(Tháng 4,6,9,11), 31(Còn lại)
  * */
@@ -89,9 +84,7 @@ int GetSoNgay(const int &iThang, const int &iNam) {
 
 /*
  * @brief Kiểm tra năm nhuận
- *
  * @param iNam
- *
  * @return 1(Nhuận), 0(Không nhuận)
  * */
 bool KiemTraNamNhuan(const int &iNam) {
@@ -106,9 +99,7 @@ bool KiemTraNamNhuan(const int &iNam) {
 
 /*
  * @brief Kiểm tra năm thỏa mãn: dương
- *
  * @param iNam
- *
  * @return 1(Hợp lệ), 0(Không hợp lệ)
  * */
 bool KiemTraNam(const int &iNam) {
@@ -123,9 +114,7 @@ bool KiemTraNam(const int &iNam) {
 
 /*
  * @brief Kiểm tra tháng thỏa mãn: dương, không lớn hơn 12
- *
  * @param iThang
- *
  * @return 1(Hợp lệ), 0(Không hợp lệ)
  * */
 bool KiemTraThang(const int &iThang) {
@@ -140,11 +129,9 @@ bool KiemTraThang(const int &iThang) {
 
 /*
  * @brief Kiểm tra ngày thỏa mãn: dương, không lớn hơn tổng số ngày của tháng
- *
  * @param iNgay
  * @param iThang
  * @param iNam
- *
  * @return 1(Hợp lệ), 0(Không hợp lệ)
  * */
 bool KiemTraNgay(const int &iNgay, const int &iThang, const int &iNam) {

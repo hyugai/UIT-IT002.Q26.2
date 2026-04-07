@@ -7,7 +7,6 @@ using namespace std;
 /*
  * @brief Nhập giờ (iGio), phút (iPhut), giây (iGiay) -> KIỂM TRA, NHẬP LẠI nếu
  * không hợp lệ
- *
  * @return void
  * */
 void GioPhutGiay::Nhap() {
@@ -26,17 +25,13 @@ void GioPhutGiay::Nhap() {
         cin >> iGiay;
     } while (!KiemTraPhutGiay(iGiay));
 }
-
 /*
  * @brief Xuất ra màn hình theo định dạng: hh:mm:ss
- *
  * @return void
  * */
 void GioPhutGiay::Xuat() { printf("%02d:%02d:%02d\n", iGio, iPhut, iGiay); }
-
 /*
  * @brief Tính mốc thời gian ở 1 giây tiếp theo
- *
  * @return Mốc thời gian mới
  * */
 GioPhutGiay GioPhutGiay::TinhCongThemMotGiay() {
@@ -60,9 +55,7 @@ GioPhutGiay GioPhutGiay::TinhCongThemMotGiay() {
 
 /*
  * @brief Kiểm tra giờ thỏa mãn: dương, không lớn hơn 23
- *
  * @param t
- *
  * @return 1(Hợp lệ), 0(Không hợp lệ)
  * */
 bool KiemTraGio(const int &t) {
@@ -74,12 +67,9 @@ bool KiemTraGio(const int &t) {
 
     return kq;
 }
-
 /*
  * @brief Kiểm tra phút/giây thỏa mãn: dương, không lớn hơn 59
- *
  * @param t
- *
  * @return 1(Hợp lệ), 0(Không hợp lệ)
  * */
 bool KiemTraPhutGiay(const int &t) {
