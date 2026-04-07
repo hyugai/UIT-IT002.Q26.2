@@ -3,14 +3,14 @@
 struct PhanSo {
     void Nhap();
     void Xuat();
+    void RutGon();
 
-    PhanSo RutGon();
-    PhanSo Tong();
-    PhanSo Hieu();
-    PhanSo Tich();
-    PhanSo Thuong();
+    PhanSo Tong(PhanSo const &);
+    PhanSo Hieu(PhanSo const &);
+    PhanSo Tich(PhanSo const &);
+    PhanSo Thuong(PhanSo const &);
 
-    int SoSanh();
+    int SoSanh(PhanSo const &);
 
   private:
     int iTu;

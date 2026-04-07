@@ -1,13 +1,16 @@
 #pragma once
 
-struct Date {
+struct NgayThangNam {
     void Nhap();
     void Xuat();
-    Date NgayThangNamTiepTheo(const Date &);
+    NgayThangNam NgayThangNamTiepTheo();
 
   private:
     int iNgay, iThang, iNam;
 };
 
-int NgayTrongThang();
-bool KiemTraNgay(const int &);
+int GetSoNgay(const int &, const int &);
+bool KiemTraNamNhuan(const int &);
+bool KiemTraNam(const int &);
+bool KiemTraThang(const int &);
+bool KiemTraNgay(const int &, const int &, const int &);
