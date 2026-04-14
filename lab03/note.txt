@@ -1,0 +1,24 @@
+Làm BT{1,2,4,5,8}
+ BT1
+    Không chấm phần vẽ, khuyến khích làm
+    goc quay dua tren tam O(0,0)
+ BT4
+    Ra thi CK
+ BT5
+    Ít ra thi CK
+
+Danh sách -> mảng động/mảng tĩnh
+
+Thiết lập (constructor): 3
+    default
+    param
+    copy
+Hủy bỏ (destructor):
+
+phan biet:
+    private, protected, public
+    overload, overwrite
+
+Dang bai thi CK
+    class diagram -> nhap, xuat
+    Hoc 1 cach nhap, xuat
