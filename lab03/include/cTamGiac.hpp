@@ -1,18 +1,9 @@
-struct cDiem {
-    cDiem();
-    cDiem(double, double);
-    cDiem(cDiem const &);
-    ~cDiem();
+#include "cDiem.hpp"
+#include <string>
 
-    void Nhap();
-    // void Xuat();
-    cDiem TinhTien(double, double);
-    cDiem Quay(double);
-    cDiem ThuPhong(double);
+using namespace std;
 
-  private:
-    double x, y;
-};
+enum class LoaiTamGiac { Thuong, Vuong, Can, VuongCan, Deu };
 
 struct cTamGiac {
     cTamGiac();
@@ -27,5 +18,13 @@ struct cTamGiac {
     cDiem ThuNho(double);
 
   private:
-    cDiem ds[3];
+    cDiem *ds;
 };
+
+LoaiTamGiac getTriangleType(cDiem const *);
+double calDist(cDiem const &, cDiem const &);
+bool isValidTriangle(cDiem const *);
+bool isEquilateralTriangle(cDiem const *);
+bool isIsoscelesTriangle(cDiem const *);
+bool isRighTriangle(cDiem const *);
+// bool isIsoscelesRighTriangle();
