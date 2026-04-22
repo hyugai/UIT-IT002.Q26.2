@@ -194,7 +194,7 @@ cTamGiac cTamGiac::scaleUp() const {
 
 /* *
  * @brief Thu nho tam giac k lan
- * @return cTamGiac Trả về một tam giác mới sau khi phong to
+ * @return cTamGiac Trả về một tam giác mới sau khi thu nho
  * */
 cTamGiac cTamGiac::scaleDown() const {
     double k;
