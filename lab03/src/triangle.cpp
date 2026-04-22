@@ -1,6 +1,7 @@
 #include "../include/triangle.hpp"
 #include "../include/line.hpp"
 #include <cmath>
+#include <cstddef>
 #include <iomanip>
 #include <iostream>
 #include <vector>
@@ -11,18 +12,17 @@ using namespace std;
 cTamGiac::cTamGiac() : points(3) {}
 
 // Parameterized Constructor: Khởi tạo 1 tam giác với 3 điểm
-cTamGiac::cTamGiac(Point const &p1, Point const &p2, Point const &p3) {
-    points.clear();
-
-    points.push_back(p1);
-    points.push_back(p2);
-    points.push_back(p3);
+cTamGiac::cTamGiac(vector<Point> ps) {
+    for (auto p : ps) {
+        points.push_back(p);
+    }
 }
 
 // Copy Constructor: Khởi tạo 1 tam giác là bản sao của 1 tam giác khác
 cTamGiac::cTamGiac(cTamGiac const &tri) {
-    for (int i{0}; i < MAX_SIDES; i++)
-        points[i] = tri.points[i];
+    for (auto p : tri.points) {
+        points.push_back(p);
+    }
 }
 
 // Destructor
@@ -135,9 +135,77 @@ double cTamGiac::calcPerimeter() const {
  * @return void
  * */
 double cTamGiac::calcArea() const {
-    double p{calcPerimeter() / 2.0};
-    double s = sqrt(p * (p - sides_length[0]) * (p - sides_length[1]) *
-                    (p - sides_length[2]));
+    double half_p{calcPerimeter() / 2.0};
+    double s = sqrt(half_p * (half_p - sides_length[0]) *
+                    (half_p - sides_length[1]) * (half_p - sides_length[2]));
 
     return s;
+}
+
+/* *
+ * @brief Tịnh tiến tam giác theo 1 vector v
+ * @return cTamGiac Trả về một tam giác mới sau khi tịnh tiến
+ * */
+cTamGiac cTamGiac::translate() const {
+    cout << "Nhap vector tinh tien:\n";
+    Point v;
+    v.input();
+
+    cTamGiac new_tri;
+    for (size_t i{0}; i < MAX_SIDES; i++)
+        new_tri.points[i] = points[i].translate(v);
+
+    return new_tri;
+}
+
+/* *
+ * @brief Quay tam giác theo một góc radian
+ * @return cTamGiac Trả về một tam giác mới sau khi quay
+ * */
+cTamGiac cTamGiac::rotate() const {
+    double rad;
+    cout << "Nhap goc quay (radian): ";
+    cin >> rad;
+
+    cTamGiac new_tri;
+    for (size_t i{0}; i < MAX_SIDES; i++)
+        new_tri.points[i] = points[i].rotate(rad);
+
+    return new_tri;
+}
+
+/* *
+ * @brief Phong to tam giac k lan
+ * @return cTamGiac Trả về một tam giác mới sau khi phong to
+ * */
+cTamGiac cTamGiac::scaleUp() const {
+    double k;
+    do {
+        cout << "Nhap he so phong to (lon hon 1): ";
+        cin >> k;
+    } while (k <= 1);
+
+    cTamGiac new_tri;
+    for (size_t i{0}; i < MAX_SIDES; i++)
+        new_tri.points[i] = points[i].scale(k);
+
+    return new_tri;
+}
+
+/* *
+ * @brief Thu nho tam giac k lan
+ * @return cTamGiac Trả về một tam giác mới sau khi phong to
+ * */
+cTamGiac cTamGiac::scaleDown() const {
+    double k;
+    do {
+        cout << "Nhap he so phong to (lon hon 1): ";
+        cin >> k;
+    } while (k >= 1);
+
+    cTamGiac new_tri;
+    for (size_t i{0}; i < MAX_SIDES; i++)
+        new_tri.points[i] = points[i].scale(k);
+
+    return new_tri;
 }

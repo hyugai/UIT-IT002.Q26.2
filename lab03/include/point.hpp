@@ -15,9 +15,9 @@ class Point {
 
     void input();
     static double calcDistanceTo(Point const &, Point const &);
-    Point translate(double, double);
-    Point rotate(double);
-    Point scale(double);
+    Point translate(Point const &) const;
+    Point rotate(double) const;
+    Point scale(double) const;
 
     bool operator==(Point const &) const;
     friend Point operator-(Point const &, Point const &);

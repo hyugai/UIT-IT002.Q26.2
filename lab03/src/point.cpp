@@ -46,16 +46,14 @@ double Point::calcDistanceTo(const Point &p1, const Point &p2) {
  * @param y_vec Tung độ của vector
  * @return Point Điểm mới sau khi tịnh tiến
  * */
-Point Point::translate(double x_vec, double y_vec) {
-    return Point{x + x_vec, y + y_vec};
-}
+Point Point::translate(Point const &v) const { return Point{x + v.x, y + v.y}; }
 
 /* *
  * @brief Thực hiện phép quay tâm 0 theo một góc radian
  * @param rad Số đo góc tính bằng radian
  * @return Point Điểm mới sau khi quay
  * */
-Point Point::rotate(double rad) {
+Point Point::rotate(double rad) const {
     double new_x{x * cos(rad) - y * sin(rad)};
     double new_y{x * sin(rad) + y * cos(rad)};
 
@@ -67,7 +65,7 @@ Point Point::rotate(double rad) {
  * @param k Hệ số thu phóng
  * @return Point Điểm mới sau khi thu/phóng
  * */
-Point Point::scale(double k) { return Point{x * k, y * k}; }
+Point Point::scale(double k) const { return Point{x * k, y * k}; }
 
 /* *
  * @brief Overload toán tử == để so sánh 2 điểm có giống nhau không

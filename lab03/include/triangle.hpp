@@ -1,6 +1,6 @@
 #pragma once
 #include "point.hpp"
-#include <iostream>
+#include <cstddef>
 #include <vector>
 
 #define MAX_SIDES 3
@@ -24,7 +24,7 @@ class cTamGiac {
 
   public:
     cTamGiac();
-    cTamGiac(Point const &, Point const &, Point const &);
+    cTamGiac(vector<Point>);
     cTamGiac(cTamGiac const &);
     ~cTamGiac();
 
@@ -33,10 +33,10 @@ class cTamGiac {
     void identifyTriangleType();
     double calcPerimeter() const;
     double calcArea() const;
-    cTamGiac translate();
-    cTamGiac rotate();
-    cTamGiac scaleUp();
-    cTamGiac scaleDown();
+    cTamGiac translate() const;
+    cTamGiac rotate() const;
+    cTamGiac scaleUp() const;
+    cTamGiac scaleDown() const;
 };
 
 template <typename Func, typename VecIn, typename VecOut>
@@ -54,12 +54,21 @@ void calcCombination(Func fn, VecIn const &elements, VecOut &res, int const &n,
 }
 
 template <typename Vec> void bubbleSort(Vec &v) {
-    for (int i{0}; i < v.size() - 1; i++) {
-        cout << v[i] << ' ' << v[i + 1] << endl;
-        double t{v[i]};
-        if (v[i] > v[i + 1]) {
-            v[i] = v[i + 1];
-            v[i + 1] = t;
+    size_t n{v.size()};
+    bool is_swapped{false};
+
+    for (size_t i{0}; i < n - 1; i++) {
+        for (size_t j{0}; j < n - i - 1; j++) {
+            if (v[j] > v[j + 1]) {
+                double t{v[j]};
+                v[j] = v[j + 1];
+                v[j + 1] = t;
+
+                is_swapped = true;
+            }
         }
+
+        if (!is_swapped)
+            break;
     }
 }
