@@ -1,12 +1,32 @@
 # ===== Task 1 ===== 
-add_library(cTamGiac)
-target_sources(cTamGiac
+add_library(line)
+target_sources(line
     PRIVATE
-        ../src/cTamGiac.cpp
+        ../src/line.cpp
     PUBLIC
         FILE_SET HEADERS
         FILES
-            cTamGiac.hpp
+            line.hpp
+)
+
+add_library(point)
+target_sources(point
+    PRIVATE
+        ../src/point.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            point.hpp
+)
+
+add_library(triangle)
+target_sources(triangle
+    PRIVATE
+        ../src/triangle.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            triangle.hpp
 )
 
 # ===== Task 2 ===== 
