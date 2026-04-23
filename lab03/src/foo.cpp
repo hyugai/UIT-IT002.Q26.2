@@ -3,30 +3,24 @@
 
 using namespace std;
 
-void output(int a, int b) { printf("(%d;%d)", a, b); }
-int sum(int a, int b) { return a + b; }
-
-template <typename F, typename A, typename R>
-void genComb(const int &size, F func, A arr, R res, int i = 0) {
-    if (i == size - 1) {
+template <typename Func, typename ArrIn, typename ArrOut>
+void foo(Func fn, ArrIn &pElements, ArrOut &pRes, int const &size,
+         int iResIdx = 0, int i = 0) {
+    if (i == size - 1)
         return;
-    }
 
     for (int k{i + 1}; k < size; k++) {
-        cout << func(arr[i], arr[k]) << ' ';
-        // output(arr[i], arr[k]);
+        cout << pElements[i] << ' ' << pElements[k] << endl;
+        pRes[iResIdx++] = fn(pElements[i], pElements[k]);
     }
-    genComb(size, func, arr, res, ++i);
+
+    foo(fn, pElements, pRes, size, ++iResIdx, ++i);
 }
 
 int main() {
-    // genComb(5);
-    // cout << endl;
-    int arr[]{4, 2, 3, 6};
+    int input[]{4, 2, 3, 6};
     int res[10]{};
-
-    genComb(4, sum, arr, res);
-    cout << endl;
+    foo([&](auto x, auto y) { return x + y; }, input, res, 4);
 
     return 0;
 }

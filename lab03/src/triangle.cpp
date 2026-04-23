@@ -1,143 +1,165 @@
 #include "../include/triangle.hpp"
 #include "../include/line.hpp"
 #include <cmath>
-#include <cstddef>
 #include <iomanip>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 // Defaulted Constructor: Khởi tạo tam giác với 3 điểm "trống"
-cTamGiac::cTamGiac() : points(3) {}
+cTamGiac::cTamGiac() {
+    mpDiem = new cDiem[MAX_SIDES];
+    mpCanh = new double[MAX_SIDES];
+}
 
 // Parameterized Constructor: Khởi tạo 1 tam giác với 3 điểm
-cTamGiac::cTamGiac(vector<Point> ps) {
-    for (auto p : ps) {
-        points.push_back(p);
-    }
+cTamGiac::cTamGiac(cDiem *pDiem) {
+    for (int i{0}; i < MAX_SIDES; i++)
+        this->mpDiem[i] = pDiem[i];
 }
 
 // Copy Constructor: Khởi tạo 1 tam giác là bản sao của 1 tam giác khác
-cTamGiac::cTamGiac(cTamGiac const &tri) {
-    for (auto p : tri.points) {
-        points.push_back(p);
-    }
+cTamGiac::cTamGiac(cTamGiac const &oTamGiac) {
+    for (int i{0}; i < MAX_SIDES; i++)
+        mpDiem[i] = oTamGiac.mpDiem[i];
 }
 
 // Destructor
-cTamGiac::~cTamGiac() {}
+cTamGiac::~cTamGiac() {
+    delete[] mpDiem;
+    delete[] mpCanh;
+}
 
 /* *
  * @brief Yêu cầu nhập vào 3 điểm đến khi thỏa mãn
  * @return void
  * */
-void cTamGiac::input() {
+void cTamGiac::nhap() {
     cout << "Nhap diem thu 1:\n";
-    points[0].input();
+    mpDiem[0].nhap();
 
     do {
         cout << "Nhap diem thu 2:\n";
-        points[1].input();
-    } while (points[0] == points[1]);
+        mpDiem[1].nhap();
+    } while (mpDiem[0] == mpDiem[1]);
 
     do {
         cout << "Nhap diem thu 3:\n";
-        points[2].input();
-        identifyTriangleType();
-    } while (type == TriangleType::Unknow);
+        mpDiem[2].nhap();
+        getDangTamGiac();
+    } while (type == DangTamGiac::KhongPhaiTamGiac);
 }
 
 /* *
  * @brief Xuất ra màn hình loại tam giác, độ dài 3 cạnh
  * @return void
  * */
-void cTamGiac::output() const {
+void cTamGiac::xuat() const {
     switch (type) {
-    case TriangleType::Regular:
+    case DangTamGiac::Thuong:
         cout << "\nTam giac thuong\n";
         break;
-    case TriangleType::Equilateral:
+    case DangTamGiac::Deu:
         cout << "\nTam giac deu\n";
         break;
-    case TriangleType::Right:
+    case DangTamGiac::Vuong:
         cout << "\nTam giac vuong\n";
         break;
-    case TriangleType::Isosceles:
+    case DangTamGiac::Can:
         cout << "\nTam giac can\n";
         break;
-    case TriangleType::IsoscelesRight:
+    case DangTamGiac::VuongCan:
         cout << "\nTam giac vuong can\n";
         break;
-    case TriangleType::Unknow:
+    case DangTamGiac::KhongPhaiTamGiac:
         cout << "\nKhong phai tam giac\n";
         break;
     }
-    cout << "Do dai: ";
-    for (auto &e : sides_length) {
-        cout << setprecision(3) << e << ' ';
+    cout << "Do dai 3 canh: ";
+    for (int i{0}; i < MAX_SIDES; i++) {
+        cout << setprecision(3) << mpCanh[i]
+             << (i < MAX_SIDES - 1 ? ", " : " ");
     }
     cout << endl;
 
-    cout << "Chu vi: " << setprecision(4) << calcPerimeter() << endl;
-    cout << "Dien tich: " << setprecision(4) << calcArea() << endl;
+    cout << "Chu vi: " << setprecision(4) << getChuVi() << endl;
+    cout << "Dien tich: " << setprecision(4) << getDienTich() << endl;
+}
+
+/* *
+ * @brief Kiểm tra 3 điểm thẳng hàng
+ * @returnn bool true(3 điểm thẳng hàng), false(Ngược lại)
+ * */
+bool cTamGiac::isTamGiac() {
+    return !cDuongThang{mpDiem[0], mpDiem[1]}.isDiemThuocDuongThang(mpDiem[2]);
+}
+
+/* *
+ * @brief Đếm số cặp cạnh bằng nhau
+ * @return short Số cặp cạnh bằng nhau
+ * */
+short cTamGiac::countCapCanhBangNhau() {
+    calcToHop(cDiem::calcKhoangCachToiDiem, mpDiem, mpCanh, MAX_SIDES);
+    bubbleSort(mpCanh, MAX_SIDES);
+
+    short isCapCanhBangNhau[MAX_SIDES];
+    calcToHop([&](auto a, auto b) { return fabs(a - b) < EPS ? 1 : 0; }, mpCanh,
+              isCapCanhBangNhau, MAX_SIDES);
+
+    isCapCanhBangNhau[0] += isCapCanhBangNhau[1] + isCapCanhBangNhau[2];
+
+    return isCapCanhBangNhau[0];
+}
+
+/* *
+ * @brief Kiểm tra tam giác vuông bằng định lý Pytago
+ * @return bool true(Tam giác vuông), false(Ngược lại)
+ * */
+bool cTamGiac::isVuong() {
+    double val{fabs(pow(mpCanh[0], 2) + pow(mpCanh[1], 2) - pow(mpCanh[2], 2))};
+
+    return (val < EPS ? true : false);
 }
 
 /* *
  * @brief Kiểm tra và xác định loại tam giác
  * @return void
  * */
-void cTamGiac::identifyTriangleType() {
-    Line l01{points[0], points[1]};
-    if (!l01.isPointOnLine(points[2])) {
-        type = TriangleType::Unknow;
-        return; // Không phải tam giác
-    }
-
-    sides_length.clear();
-    calcCombination(Point::calcDistanceTo, points, sides_length, MAX_SIDES);
-    bubbleSort(sides_length);
-
-    vector<short> is_equal; // Các cặp cạnh có bằng nhau không
-    calcCombination([&](auto x, auto y) { return (fabs(x - y) < EPS ? 1 : 0); },
-                    sides_length, is_equal, MAX_SIDES);
-    is_equal[0] += is_equal[1] + is_equal[2];
-
-    if (is_equal[0] == 3) { // 3 cạnh tam giác đều
-        type = TriangleType::Equilateral;
+void cTamGiac::getDangTamGiac() {
+    if (isTamGiac()) {
+        type = DangTamGiac::KhongPhaiTamGiac;
         return;
     }
 
-    bool is_right{(pow(sides_length[0], 2) + pow(sides_length[1], 2) -
-                   pow(sides_length[2], 2)) < EPS
-                      ? true
-                      : false}; // Dùng pytago để xác định tam giác vuông
-
-    if (is_right) {
-        type = (is_equal[0] > 0 ? TriangleType::IsoscelesRight
-                                : TriangleType::Right);
+    short capCanhBangNhauCount{countCapCanhBangNhau()};
+    if (capCanhBangNhauCount == 3) {
+        type = DangTamGiac::Deu;
         return;
     }
 
-    type = is_equal[0] > 0 ? TriangleType::Isosceles : TriangleType::Regular;
+    if (isVuong()) {
+        type =
+            (capCanhBangNhauCount ? DangTamGiac::VuongCan : DangTamGiac::Vuong);
+        return;
+    }
+
+    type = capCanhBangNhauCount > 0 ? DangTamGiac::Can : DangTamGiac::Thuong;
 }
 
 /* *
  * @brief Tính chu vi tam giác
  * @return void
  * */
-double cTamGiac::calcPerimeter() const {
-    return sides_length.at(0) + sides_length.at(1) + sides_length.at(2);
-}
+double cTamGiac::getChuVi() const { return mpCanh[0] + mpCanh[1] + mpCanh[2]; }
 
 /* *
  * @brief Tính diện tích tam giác bằng công thức Heron
  * @return void
  * */
-double cTamGiac::calcArea() const {
-    double half_p{calcPerimeter() / 2.0};
-    double s = sqrt(half_p * (half_p - sides_length[0]) *
-                    (half_p - sides_length[1]) * (half_p - sides_length[2]));
+double cTamGiac::getDienTich() const {
+    double half_p{getChuVi() / 2.0};
+    double s = sqrt(half_p * (half_p - mpCanh[0]) * (half_p - mpCanh[1]) *
+                    (half_p - mpCanh[2]));
 
     return s;
 }
@@ -146,14 +168,14 @@ double cTamGiac::calcArea() const {
  * @brief Tịnh tiến tam giác theo 1 vector v
  * @return cTamGiac Trả về một tam giác mới sau khi tịnh tiến
  * */
-cTamGiac cTamGiac::translate() const {
+cTamGiac cTamGiac::tinhTien() const {
     cout << "Nhap vector tinh tien:\n";
-    Point v;
-    v.input();
+    cDiem v;
+    v.nhap();
 
     cTamGiac new_tri;
     for (size_t i{0}; i < MAX_SIDES; i++)
-        new_tri.points[i] = points[i].translate(v);
+        new_tri.mpDiem[i] = mpDiem[i].tinhTien(v);
 
     return new_tri;
 }
@@ -162,14 +184,14 @@ cTamGiac cTamGiac::translate() const {
  * @brief Quay tam giác theo một góc radian
  * @return cTamGiac Trả về một tam giác mới sau khi quay
  * */
-cTamGiac cTamGiac::rotate() const {
+cTamGiac cTamGiac::quay() const {
     double rad;
     cout << "Nhap goc quay (radian): ";
     cin >> rad;
 
     cTamGiac new_tri;
     for (size_t i{0}; i < MAX_SIDES; i++)
-        new_tri.points[i] = points[i].rotate(rad);
+        new_tri.mpDiem[i] = mpDiem[i].quay(rad);
 
     return new_tri;
 }
@@ -178,7 +200,7 @@ cTamGiac cTamGiac::rotate() const {
  * @brief Phong to tam giac k lan
  * @return cTamGiac Trả về một tam giác mới sau khi phong to
  * */
-cTamGiac cTamGiac::scaleUp() const {
+cTamGiac cTamGiac::phongTo() const {
     double k;
     do {
         cout << "Nhap he so phong to (lon hon 1): ";
@@ -187,7 +209,7 @@ cTamGiac cTamGiac::scaleUp() const {
 
     cTamGiac new_tri;
     for (size_t i{0}; i < MAX_SIDES; i++)
-        new_tri.points[i] = points[i].scale(k);
+        new_tri.mpDiem[i] = mpDiem[i].thuPhong(k);
 
     return new_tri;
 }
@@ -196,16 +218,16 @@ cTamGiac cTamGiac::scaleUp() const {
  * @brief Thu nho tam giac k lan
  * @return cTamGiac Trả về một tam giác mới sau khi thu nho
  * */
-cTamGiac cTamGiac::scaleDown() const {
+cTamGiac cTamGiac::thuNho() const {
     double k;
     do {
-        cout << "Nhap he so phong to (lon hon 1): ";
+        cout << "Nhap he so phong to (so thuc duong nho hon 1): ";
         cin >> k;
-    } while (k >= 1);
+    } while (k >= 1 || k <= 0);
 
     cTamGiac new_tri;
-    for (size_t i{0}; i < MAX_SIDES; i++)
-        new_tri.points[i] = points[i].scale(k);
+    for (short i{0}; i < MAX_SIDES; i++)
+        new_tri.mpDiem[i] = mpDiem[i].thuPhong(k);
 
     return new_tri;
 }
