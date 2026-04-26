@@ -1,5 +1,5 @@
-#include "../include/triangle.hpp"
-#include "../include/line.hpp"
+#include "../include/cTamGiac.h"
+#include "../include/cDuongThang.h"
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -143,7 +143,7 @@ void cTamGiac::getDangTamGiac() {
         return;
     }
 
-    type = capCanhBangNhauCount > 0 ? DangTamGiac::Can : DangTamGiac::Thuong;
+    type = capCanhBangNhauCount ? DangTamGiac::Can : DangTamGiac::Thuong;
 }
 
 /* *

@@ -1,5 +1,5 @@
 #pragma once
-#include "point.hpp"
+#include "cDiem.h"
 
 class cDuongThang {
     double mHeSoX, mHeSoY, mHangSo;

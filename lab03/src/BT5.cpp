@@ -1,0 +1,49 @@
+#include "../include/cDaThuc.h"
+#include <iomanip>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "===== Khoi tao da thuc bac 0 =====\n";
+    cDaThuc daThucBac0;
+    daThucBac0.xuat();
+
+    cout << "===== Khoi tao da thuc bac n =====\n";
+    int n;
+    cout << "Nhap bac n (nguyen khong am): ";
+    cin >> n;
+    cDaThuc daThucBacN{n};
+    daThucBacN.xuat();
+
+    cout << "===== Tinh gia tri da thuc khi biet x =====\n";
+    double x;
+    cout << "Nhap x: ";
+    cin >> x;
+    cout << "Ket qua: " << setprecision(3) << daThucBacN.calcDaThuc(x) << endl;
+
+    cout << "===== Cong/Tru hai da thuc =====\n";
+    cDaThuc daThuc1;
+    cout << "Nhap da thuc thu 1:\n";
+    daThuc1.nhap();
+    cout << "Da thuc thu 1: ";
+    daThuc1.xuat();
+    cout << endl;
+
+    cDaThuc daThuc2;
+    cout << "Nhap da thuc thu 2:\n";
+    daThuc2.nhap();
+    cout << "Da thuc thu 2: ";
+    daThuc2.xuat();
+    cout << endl;
+
+    cout << "Ket qua phep cong: ";
+    cDaThuc kqPhepCong{daThuc1.addDaThuc(daThuc2)};
+    kqPhepCong.xuat();
+
+    cout << "Ket qua phep tru: ";
+    cDaThuc kqPhepTru{daThuc1.subDaThuc(daThuc2)};
+    kqPhepTru.xuat();
+
+    return 0;
+}

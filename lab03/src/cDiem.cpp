@@ -1,4 +1,4 @@
-#include "../include/point.hpp"
+#include "../include/cDiem.h"
 #include <cmath>
 #include <iostream>
 

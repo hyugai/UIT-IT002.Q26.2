@@ -1,38 +1,62 @@
 # ===== Task 1 ===== 
-add_library(line)
-target_sources(line
+add_library(cDiem)
+target_sources(cDiem
     PRIVATE
-        ../src/line.cpp
+        ../src/cDiem.cpp
     PUBLIC
         FILE_SET HEADERS
         FILES
-            line.hpp
+            cDiem.h
 )
 
-add_library(point)
-target_sources(point
+add_library(cDuongThang)
+target_sources(cDuongThang
     PRIVATE
-        ../src/point.cpp
+        ../src/cDuongThang.cpp
     PUBLIC
         FILE_SET HEADERS
         FILES
-            point.hpp
+            cDuongThang.h
 )
 
-add_library(triangle)
-target_sources(triangle
+add_library(cTamGiac)
+target_sources(cTamGiac
     PRIVATE
-        ../src/triangle.cpp
+        ../src/cTamGiac.cpp
     PUBLIC
         FILE_SET HEADERS
         FILES
-            triangle.hpp
+            cTamGiac.h
 )
 
-# ===== Task 2 ===== 
-# ===== Task 3 ===== 
 # ===== Task 4 ===== 
+add_library(cArray)
+target_sources(cArray
+    PRIVATE
+        ../src/cArray.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            cArray.h
+)
+
 # ===== Task 5 ===== 
-# ===== Task 6 ===== 
-# ===== Task 7 ===== 
-# ===== Task 8 ===== 
+add_library(cSoHang)
+target_sources(cSoHang
+    PRIVATE
+        ../src/cSoHang.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            cSoHang.h
+)
+
+add_library(cDaThuc)
+target_sources(cDaThuc
+    PRIVATE
+        ../src/cDaThuc.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            cDaThuc.h
+)

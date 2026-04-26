@@ -1,4 +1,4 @@
-#include "../include/triangle.hpp"
+#include "../include/cTamGiac.h"
 #include <iostream>
 
 using namespace std;

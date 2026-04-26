@@ -1,4 +1,4 @@
-#include "../include/line.hpp"
+#include "../include/cDuongThang.h"
 
 // #include <iostream>
 // using namespace std;
