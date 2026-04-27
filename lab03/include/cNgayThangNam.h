@@ -1,3 +1,5 @@
+#pragma once
+
 class cNgayThangNam {
     int mNgay, mThang, mNam;
 

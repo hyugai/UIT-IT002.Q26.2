@@ -1,3 +1,4 @@
+#pragma once
 #include "cNgayThangNam.h"
 #include <string>
 

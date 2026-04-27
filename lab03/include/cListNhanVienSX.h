@@ -1,8 +1,9 @@
+#pragma once
 #include "cNhanVienSX.h"
 
 class cListNhanVienSX {
     int mSoNhanVien;
-    cNhanVienSX *mpNhanVienSX;
+    cNhanVienSX *mpNhanVienSX{nullptr};
 
   public:
     ~cListNhanVienSX();

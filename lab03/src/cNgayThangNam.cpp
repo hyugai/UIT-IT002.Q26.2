@@ -29,7 +29,9 @@ void cNgayThangNam::nhap() {
  * @brief Xuất ra màn hình ngày tháng năm theo định dạng dd-mm-yyyy
  * @return void
  * */
-void cNgayThangNam::xuat() const { printf("%2d-%2d-%4d", mNgay, mThang, mNam); }
+void cNgayThangNam::xuat() const {
+    printf("%02d-%02d-%d", mNgay, mThang, mNam);
+}
 
 /* *
  * @brief Đếm số ngày tối đa trong tháng

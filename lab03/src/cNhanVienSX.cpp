@@ -48,19 +48,20 @@ void cNhanVienSX::setGiaMotSanPham(double const &giaMotSanPham) {
 }
 
 /* *
- * @brief
+ * @brief Nhập vào thông tin nhân viên
  * @return void
  * */
 void cNhanVienSX::nhap() {
     cout << "Nhap ID: ";
     cin >> mId;
 
+    cin.ignore();
     do {
-        cout << "Nhap ho ten:\n";
+        cout << "Nhap ho ten: ";
         getline(cin, mHoTen);
     } while (mHoTen.length() == 0);
 
-    cout << "Nhap ngay sinh: ";
+    cout << "Nhap ngay sinh:\n";
     mNgaySinh.nhap();
 
     cout << "Nhap so san pham da gia cong: ";
@@ -77,16 +78,21 @@ void cNhanVienSX::nhap() {
  * @return void
  * */
 void cNhanVienSX::xuat() const {
-    cout << "ID cua nhan vien: " << mId;
+    // cout << "ID cua nhan vien: " << mId << endl;
 
-    cout << "Ho va ten: " << mHoTen << endl;
+    // cout << "Ho va ten: " << mHoTen << endl;
 
-    cout << "Ngay sinh: ";
+    // cout << "Ngay sinh: ";
+    // mNgaySinh.xuat();
+    // cout << endl;
+
+    // cout << "So san pham da gia cong: " << mSoSanPhamDaGiaCong << endl;
+
+    // cout << "Gia mot san pham: " << mGiaMotSanPham << endl;
+
+    cout << mId << '\t' << mHoTen << "\t\t";
     mNgaySinh.xuat();
-
-    cout << "\nSo san pham da gia cong: " << mSoSanPhamDaGiaCong << endl;
-
-    cout << "\nGia mot san pham: " << mGiaMotSanPham << endl;
+    cout << '\t' << mSoSanPhamDaGiaCong << "\t\t" << mGiaMotSanPham << endl;
 }
 
 /* *

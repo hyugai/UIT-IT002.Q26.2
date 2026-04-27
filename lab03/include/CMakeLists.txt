@@ -71,6 +71,7 @@ target_sources(cNgayThangNam
         FILES
             cNgayThangNam.h
 )
+
 add_library(cNhanVienSX)
 target_sources(cNhanVienSX
     PRIVATE
@@ -90,3 +91,5 @@ target_sources(cListNhanVienSX
         FILES
             cListNhanVienSX.h
 )
+target_link_libraries(cNhanVienSX PRIVATE cNgayThangNam)
+target_link_libraries(cListNhanVienSX PRIVATE cNhanVienSX)

@@ -17,6 +17,7 @@ void cListNhanVienSX::nhap() {
     } while (mSoNhanVien < 1);
 
     delete[] mpNhanVienSX;
+
     mpNhanVienSX = new cNhanVienSX[mSoNhanVien];
 
     for (int i{0}; i < mSoNhanVien; i++) {
@@ -29,6 +30,8 @@ void cListNhanVienSX::nhap() {
  * @return void
  * */
 void cListNhanVienSX::xuat() const {
+    cout << "id\tho_ten\t\tngay_sinh\tso_san_pham\tdon_gia_mot_san_pham\n";
+
     for (int i{0}; i < mSoNhanVien; i++) {
         mpNhanVienSX[i].xuat();
     }
