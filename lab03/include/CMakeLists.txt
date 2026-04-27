@@ -60,3 +60,33 @@ target_sources(cDaThuc
         FILES
             cDaThuc.h
 )
+
+# ===== Task 8 ===== 
+add_library(cNgayThangNam)
+target_sources(cNgayThangNam
+    PRIVATE
+        ../src/cNgayThangNam.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            cNgayThangNam.h
+)
+add_library(cNhanVienSX)
+target_sources(cNhanVienSX
+    PRIVATE
+        ../src/cNhanVienSX.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            cNhanVienSX.h
+)
+
+add_library(cListNhanVienSX)
+target_sources(cListNhanVienSX
+    PRIVATE
+        ../src/cListNhanVienSX.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            cListNhanVienSX.h
+)

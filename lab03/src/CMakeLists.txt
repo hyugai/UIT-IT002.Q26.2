@@ -12,3 +12,8 @@ target_link_libraries(BT2 PRIVATE cArray)
 add_executable(BT5)
 target_sources(BT5 PRIVATE BT5.cpp)
 target_link_libraries(BT5 PRIVATE cDaThuc cSoHang)
+
+# ===== Task 8 =====
+add_executable(BT8)
+target_sources(BT8 PRIVATE BT8.cpp)
+target_link_libraries(BT8 PRIVATE cNgayThangNam cNhanVienSX cListNhanVienSX)
