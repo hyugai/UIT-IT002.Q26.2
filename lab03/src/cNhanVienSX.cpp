@@ -1,4 +1,5 @@
 #include "../include/cNhanVienSX.h"
+#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -40,7 +41,9 @@ void cNhanVienSX::setSoSanPhamDaGiaCong(int const &soSanPhamGiaCong) {
 void cNhanVienSX::setHoTen(string const &hoTen) { mHoTen = hoTen; }
 
 // Thiết lập ngày sinh
-void cNhanVienSX::setNgaySinh(cNgayThangNam ngaySinh) { mNgaySinh = ngaySinh; }
+void cNhanVienSX::setNgaySinh(cNgayThangNam const &ngaySinh) {
+    mNgaySinh = ngaySinh;
+}
 
 // Thiết lập giá một sản phẩm
 void cNhanVienSX::setGiaMotSanPham(double const &giaMotSanPham) {
@@ -52,20 +55,27 @@ void cNhanVienSX::setGiaMotSanPham(double const &giaMotSanPham) {
  * @return void
  * */
 void cNhanVienSX::nhap() {
-    cout << "Nhap ID: ";
-    cin >> mId;
+    string inp;
+    do {
+        cout << "Nhap ma ID (5 so nguyen duong): ";
+        cin >> inp;
+    } while (!isIdHopLe(inp));
+    mId = stoi(inp);
 
     cin.ignore();
     do {
         cout << "Nhap ho ten: ";
-        getline(cin, mHoTen);
-    } while (mHoTen.length() == 0);
+        getline(cin, inp);
+    } while (!isHoTenHopLe(inp));
+    mHoTen = inp;
 
     cout << "Nhap ngay sinh:\n";
     mNgaySinh.nhap();
 
-    cout << "Nhap so san pham da gia cong: ";
-    cin >> mSoSanPhamDaGiaCong;
+    do {
+        cout << "Nhap so san pham da gia cong (khong am): ";
+        cin >> mSoSanPhamDaGiaCong;
+    } while (mSoSanPhamDaGiaCong < 0);
 
     do {
         cout << "Nhap don gia mot san pham (lon hon 0): ";
@@ -78,9 +88,10 @@ void cNhanVienSX::nhap() {
  * @return void
  * */
 void cNhanVienSX::xuat() const {
-    cout << mId << "," << mHoTen << ",";
+    cout << mId << ", " << mHoTen << ", ";
     mNgaySinh.xuat();
-    cout << "," << mSoSanPhamDaGiaCong << "," << mGiaMotSanPham << endl;
+    cout << ", " << setprecision(3) << fixed << mSoSanPhamDaGiaCong << ", "
+         << fixed << mGiaMotSanPham << endl;
 }
 
 /* *

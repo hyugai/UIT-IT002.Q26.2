@@ -23,13 +23,11 @@ class cTamGiac {
 
   public:
     cTamGiac();
-    cTamGiac(cDiem *);
     cTamGiac(cTamGiac const &);
     ~cTamGiac();
 
     void nhap();
     void xuat() const;
-    bool isTamGiac();
     short countCapCanhBangNhau();
     bool isVuong();
     void getDangTamGiac();

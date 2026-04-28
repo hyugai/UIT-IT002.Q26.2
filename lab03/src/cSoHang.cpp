@@ -47,8 +47,11 @@ void cSoHang::xuat() const {
             cout << "x^" << mBac;
         else if (mHeSo == 1)
             cout << fabs(mHeSo);
+        else if (mBac == 0 && fabs(mHeSo) == 1)
+            cout << fabs(mHeSo);
     }
 }
+
 /* *
  * @brief In ra màn hình số hạng đầu tiên
  * @return void
@@ -58,13 +61,15 @@ void cSoHang::xuatSoHangDauTien() const {
         cout << (mHeSo > 0 ? "" : " - ");
     else if (mHeSo)
         cout << mHeSo;
-    else
+    else if (mBac == 0)
         cout << 0;
 
-    if (mBac == 1)
-        cout << "x";
-    else if (mBac)
-        cout << "x^" << mBac;
+    if (mHeSo) {
+        if (mBac == 1)
+            cout << "x";
+        else if (mBac)
+            cout << "x^" << mBac;
+    }
 }
 
 /* *

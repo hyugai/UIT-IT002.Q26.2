@@ -74,8 +74,10 @@ void cArray::xuat() const {
  * */
 void cArray::countPhanTuX() const {
     int x;
-    cout << "Nhap x (tu " << mMin << " den " << mMax << "): ";
-    cin >> x;
+    do {
+        cout << "Nhap x (tu " << mMin << " den " << mMax << "): ";
+        cin >> x;
+    } while (x < mMin || x > mMax);
 
     int xCount{0};
     for (int i{0}; i < mN; i++) {
@@ -131,6 +133,10 @@ int cArray::findSoNguyenToLonNhat() const {
     for (int i{1}; i < mN; i++) {
         if (isPrime(mpPhanTu[i]) && mpPhanTu[i] > maxPrime)
             maxPrime = mpPhanTu[i];
+    }
+
+    if (maxPrime < 2) {
+        maxPrime = 0;
     }
 
     return maxPrime;

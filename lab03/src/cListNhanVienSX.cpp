@@ -17,12 +17,14 @@ void cListNhanVienSX::nhap() {
     } while (mSoNhanVien < 1);
 
     delete[] mpNhanVienSX;
-
     mpNhanVienSX = new cNhanVienSX[mSoNhanVien];
 
     for (int i{0}; i < mSoNhanVien; i++) {
-        mpNhanVienSX[i].nhap();
-        cout << endl;
+        do {
+            cout << "Nhap thong tin nhan vien thu " << i + 1 << endl;
+            mpNhanVienSX[i].nhap();
+            cout << endl;
+        } while (isTrungId(i));
     }
 }
 
@@ -31,7 +33,7 @@ void cListNhanVienSX::nhap() {
  * @return void
  * */
 void cListNhanVienSX::xuat() const {
-    cout << "id,ho_ten,ngay_sinh,so_san_pham_gia_cong,gia_mot_san_pham\n";
+    cout << "id, ho_ten, ngay_sinh, so_san_pham_gia_cong, gia_mot_san_pham\n";
     for (int i{0}; i < mSoNhanVien; i++) {
         mpNhanVienSX[i].xuat();
     }
@@ -60,10 +62,11 @@ cNhanVienSX cListNhanVienSX::findNhanVienLuongThapNhat() const {
 double cListNhanVienSX::calcTongLuong() const {
     double kq{0};
 
-    for (int i{0}; i < mSoNhanVien; i++)
+    for (int i{0}; i < mSoNhanVien; i++) {
         kq += mpNhanVienSX[i].calcLuong();
+    }
 
-    return 0;
+    return kq;
 }
 
 /* *

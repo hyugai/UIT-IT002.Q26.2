@@ -8,7 +8,7 @@ cDuongThang::cDuongThang() {}
 
 // Parameterized constructor: Khởi tạo đường thẳng với 2 điểm cho trước
 cDuongThang::cDuongThang(cDiem const &p1, cDiem const &p2) {
-    cDiem direction_vector{p2 - p1};
+    cDiem direction_vector{p2.calcVector(p1)};
     mHeSoX = -direction_vector.getY();
     mHeSoY = direction_vector.getX();
 
@@ -29,30 +29,11 @@ double cDuongThang::getHangSo() const { return mHangSo; }
  * @param p Điểm cần kiểm tra
  * @return int -1(trái), 0(thuộc đường thẳng), 1(phải)
  * */
-int cDuongThang::getViTriDiem(cDiem const &p) const {
+int cDuongThang::calcViTriDiem(cDiem const &p) const {
     double val{mHeSoX * p.getX() + mHeSoY * p.getY() + mHangSo};
 
     if (val >= 0 && val < 1e-8)
         return 0;
 
     return (val < 0 ? -1 : 1);
-}
-
-/* *
- * @brief Xác định vị trí của 2 đường thẳng
- * @param line Đường thẳng thứ 2
- * @return int -1(vuông góc), 0(song song), 1(cắt nhau)
- * */
-int cDuongThang::isCatNhau(cDuongThang const &line) const {
-    double dot_product{(mHeSoX * line.mHeSoX) + (mHeSoY * line.mHeSoY)};
-    if (dot_product < 1e-8) {
-        return -1;
-    }
-
-    double diff_ratio{(mHeSoX / line.mHeSoX) - (mHeSoY / line.mHeSoY)};
-    if (diff_ratio < 1e-8) {
-        return 0;
-    }
-
-    return 1;
 }

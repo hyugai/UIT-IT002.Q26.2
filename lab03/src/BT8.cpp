@@ -18,7 +18,7 @@ int main() {
     nv.xuat();
 
     cout << "\n===== Tong luong cong ty phai tra =====\n";
-    cout << setprecision(3) << danhSach.calcTongLuong() << endl;
+    cout << fixed << setprecision(3) << danhSach.calcTongLuong() << endl;
 
     cout << "\n===== Nhan vien cao tuoi nhat =====\n";
     nv = danhSach.findNhanVienCaoTuoiNhat();

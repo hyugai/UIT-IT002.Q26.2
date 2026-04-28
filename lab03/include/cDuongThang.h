@@ -12,7 +12,5 @@ class cDuongThang {
     double getHeSoY() const;
     double getHangSo() const;
 
-    int isDiemThuocDuongThang(cDiem const &) const;
-    int getViTriDiem(cDiem const &) const;
-    int isCatNhau(cDuongThang const &) const;
+    int calcViTriDiem(cDiem const &) const;
 };

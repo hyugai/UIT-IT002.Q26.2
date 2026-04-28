@@ -12,14 +12,10 @@ cTamGiac::cTamGiac() {
     mpCanh = new double[MAX_SIDES];
 }
 
-// Parameterized Constructor: Khởi tạo 1 tam giác với 3 điểm
-cTamGiac::cTamGiac(cDiem *pDiem) {
-    for (int i{0}; i < MAX_SIDES; i++)
-        this->mpDiem[i] = pDiem[i];
-}
-
 // Copy Constructor: Khởi tạo 1 tam giác là bản sao của 1 tam giác khác
 cTamGiac::cTamGiac(cTamGiac const &oTamGiac) {
+    mpDiem = new cDiem[MAX_SIDES];
+
     for (int i{0}; i < MAX_SIDES; i++)
         mpDiem[i] = oTamGiac.mpDiem[i];
 }
@@ -41,7 +37,7 @@ void cTamGiac::nhap() {
     do {
         cout << "Nhap diem thu 2:\n";
         mpDiem[1].nhap();
-    } while (mpDiem[0] == mpDiem[1]);
+    } while (mpDiem[0].isDiemTrung(mpDiem[1]));
 
     do {
         cout << "Nhap diem thu 3:\n";
@@ -87,14 +83,6 @@ void cTamGiac::xuat() const {
 }
 
 /* *
- * @brief Kiểm tra 3 điểm thẳng hàng
- * @returnn bool true(3 điểm thẳng hàng), false(Ngược lại)
- * */
-bool cTamGiac::isTamGiac() {
-    return !cDuongThang{mpDiem[0], mpDiem[1]}.getViTriDiem(mpDiem[2]);
-}
-
-/* *
  * @brief Đếm số cặp cạnh bằng nhau
  * @return short Số cặp cạnh bằng nhau
  * */
@@ -112,21 +100,11 @@ short cTamGiac::countCapCanhBangNhau() {
 }
 
 /* *
- * @brief Kiểm tra tam giác vuông bằng định lý Pytago
- * @return bool true(Tam giác vuông), false(Ngược lại)
- * */
-bool cTamGiac::isVuong() {
-    double val{fabs(pow(mpCanh[0], 2) + pow(mpCanh[1], 2) - pow(mpCanh[2], 2))};
-
-    return (val < EPS ? true : false);
-}
-
-/* *
  * @brief Kiểm tra và xác định loại tam giác
  * @return void
  * */
 void cTamGiac::getDangTamGiac() {
-    if (isTamGiac()) {
+    if (!cDuongThang{mpDiem[0], mpDiem[1]}.calcViTriDiem(mpDiem[2])) {
         type = DangTamGiac::KhongPhaiTamGiac;
         return;
     }
@@ -137,7 +115,9 @@ void cTamGiac::getDangTamGiac() {
         return;
     }
 
-    if (isVuong()) {
+    // Kiểm tra tam giác vuông
+    double val{fabs(pow(mpCanh[0], 2) + pow(mpCanh[1], 2) - pow(mpCanh[2], 2))};
+    if (val < EPS ? true : false) {
         type =
             (capCanhBangNhauCount ? DangTamGiac::VuongCan : DangTamGiac::Vuong);
         return;

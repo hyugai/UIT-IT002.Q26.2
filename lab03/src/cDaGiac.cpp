@@ -24,8 +24,10 @@ cDaGiac::~cDaGiac() { delete[] mpDiem; }
  * @note Nhập các điểm nối tiếp nhau tạo thành một đa giác lồi
  * */
 void cDaGiac::nhap() {
-    cout << "Nhap so diem cho da giac loi (lon hon 2): ";
-    cin >> mSoDiem;
+    do {
+        cout << "Nhap so diem cho da giac loi (lon hon 2): ";
+        cin >> mSoDiem;
+    } while (mSoDiem < 3);
 
     delete[] mpDiem;
     mpDiem = new cDiem[mSoDiem];
@@ -125,7 +127,7 @@ cDaGiac cDaGiac::phongTo() const {
     do {
         cout << "Nhap he so phong to (lon hon 1): ";
         cin >> k;
-    } while (k < 1);
+    } while (k <= 1);
 
     cDaGiac kq{mSoDiem};
     for (int i{0}; i < mSoDiem; i++) {
@@ -168,15 +170,15 @@ bool isDiemHopLe(cDiem const *pDiem, int const &i) {
 
     if (i == 2) {
         cDuongThang line{pDiem[0], pDiem[1]};
-        if (!line.getViTriDiem(pDiem[2]))
+        if (!line.calcViTriDiem(pDiem[2]))
             return false;
     }
 
     cDuongThang line0{pDiem[0], pDiem[i - 1]},
         line1{pDiem[i - 2], pDiem[i - 1]};
 
-    if ((line0.getViTriDiem(pDiem[i]) < 0) &&
-        (line1.getViTriDiem(pDiem[i]) < 0))
+    if ((line0.calcViTriDiem(pDiem[i]) < 0) &&
+        (line1.calcViTriDiem(pDiem[i]) < 0))
         return true;
 
     return false;

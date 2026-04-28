@@ -7,8 +7,7 @@ using namespace std;
 cDaThuc::cDaThuc() {
     mBac = 0;
 
-    if (mpSoHang)
-        delete[] mpSoHang;
+    delete[] mpSoHang;
     mpSoHang = new cSoHang[1];
     mpSoHang[0] = cSoHang{mBac, 0};
 }
@@ -19,7 +18,7 @@ cDaThuc::cDaThuc(int n) : mBac(n) {
         delete[] mpSoHang;
     mpSoHang = new cSoHang[mBac + 1];
 
-    for (int i{0}; i <= mBac; i++) {
+    for (int i{mBac}; i >= 0; i--) {
         double t;
         cout << "Nhap he so cho so hang bac " << i << ": ";
         cin >> t;
@@ -59,7 +58,7 @@ void cDaThuc::nhap() {
         delete[] mpSoHang;
     mpSoHang = new cSoHang[mBac + 1];
 
-    for (int i{0}; i <= mBac; i++) {
+    for (int i{mBac}; i >= 0; i--) {
         double t;
         cout << "Nhap he so cho so hang bac " << i << ": ";
         cin >> t;
@@ -75,6 +74,20 @@ void cDaThuc::xuat() const {
     mpSoHang[mBac].xuatSoHangDauTien();
     for (int i{mBac - 1}; i >= 0; i--) {
         mpSoHang[i].xuat();
+    }
+
+    if (mpSoHang[mBac].getHeSo() == 0) {
+        int flag{0};
+        for (int i{0}; i < mBac; i++) {
+            if (mpSoHang[i].getHeSo() != 0) {
+                flag = 1;
+            }
+            break;
+        }
+
+        if (flag == 0) {
+            cout << 0;
+        }
     }
     cout << endl;
 }

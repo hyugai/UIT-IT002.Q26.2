@@ -15,7 +15,7 @@ int main() {
     translatedPoly.xuat();
 
     cout << "\n===== Quay =====\n";
-    cDaGiac rotatedPoly{poly.tinhTien()};
+    cDaGiac rotatedPoly{poly.quay()};
     rotatedPoly.xuat();
 
     cout << "\n===== Phong To =====\n";

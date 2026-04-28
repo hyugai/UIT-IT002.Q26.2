@@ -15,10 +15,9 @@ class cDiem {
 
     void nhap();
     static double calcKhoangCachToiDiem(cDiem const &, cDiem const &);
+    cDiem calcVector(cDiem const &) const;
+    bool isDiemTrung(const cDiem &) const;
     cDiem tinhTien(cDiem const &) const;
     cDiem quay(double) const;
     cDiem thuPhong(double) const;
-
-    bool operator==(cDiem const &) const;
-    friend cDiem operator-(cDiem const &, cDiem const &);
 };

@@ -70,11 +70,11 @@ cDiem cDiem::quay(double rad) const {
 cDiem cDiem::thuPhong(double k) const { return cDiem{mX * k, mY * k}; }
 
 /* *
- * @brief Overload toán tử == để so sánh 2 điểm có giống nhau không
- * @param p Điểm cần so sánh
- * @return bool 1(Trùng nhau), 0(Khác nhau)
+ * @brief Kiểm tra xem 2 điểm có trùng nhau không
+ * @param p Điểm cần kiểm tra
+ * @return bool 1(Trùng nhau), 0(Ngược lại)
  * */
-bool cDiem::operator==(cDiem const &p) const {
+bool cDiem::isDiemTrung(cDiem const &p) const {
     bool res{true};
     if (this->mX != p.mX || this->mY != p.mY) {
         res = false;
@@ -85,10 +85,9 @@ bool cDiem::operator==(cDiem const &p) const {
 
 /* *
  * @brief Tính vector từ 2 điểm
- * @param head Điểm đầu của vector
  * @param tail Điểm cuối của vector
  * @return cDiem Trả về một "điểm" chứa tọa độ của vector
  * */
-cDiem operator-(cDiem const &head, cDiem const &tail) {
-    return cDiem{tail.mX - head.mX, tail.mY - head.mY};
+cDiem cDiem::calcVector(cDiem const &tail) const {
+    return cDiem{tail.mX - mX, tail.mY - mY};
 }
