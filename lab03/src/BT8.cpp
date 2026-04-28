@@ -1,4 +1,5 @@
 #include "../include/cListNhanVienSX.h"
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
@@ -12,12 +13,20 @@ int main() {
     cout << "===== Xuat danh sach nhan vien =====\n";
     danhSach.xuat();
 
-    // cout << "===== Nhan vien co luong thap nhat =====\n";
-    // cNhanVienSX nv{danhSach.findNhanVienLuongThapNhat()};
-    // nv.xuat();
+    cout << "\n===== Nhan vien co luong thap nhat =====\n";
+    cNhanVienSX nv{danhSach.findNhanVienLuongThapNhat()};
+    nv.xuat();
 
-    // cout << "===== Tong luong cong ty phai tra cho nhan vien san xuat
-    // =====\n"; cout << danhSach.calcTongLuong() << endl;
+    cout << "\n===== Tong luong cong ty phai tra =====\n";
+    cout << setprecision(3) << danhSach.calcTongLuong() << endl;
+
+    cout << "\n===== Nhan vien cao tuoi nhat =====\n";
+    nv = danhSach.findNhanVienCaoTuoiNhat();
+    nv.xuat();
+
+    cout << "\n===== Sap xep danh sach theo luong =====\n";
+    danhSach.sortNhanVienTheoLuong();
+    danhSach.xuat();
 
     return 0;
 }

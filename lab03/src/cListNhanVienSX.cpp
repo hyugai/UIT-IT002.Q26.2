@@ -22,6 +22,7 @@ void cListNhanVienSX::nhap() {
 
     for (int i{0}; i < mSoNhanVien; i++) {
         mpNhanVienSX[i].nhap();
+        cout << endl;
     }
 }
 
@@ -30,8 +31,7 @@ void cListNhanVienSX::nhap() {
  * @return void
  * */
 void cListNhanVienSX::xuat() const {
-    cout << "id\tho_ten\t\tngay_sinh\tso_san_pham\tdon_gia_mot_san_pham\n";
-
+    cout << "id,ho_ten,ngay_sinh,so_san_pham_gia_cong,gia_mot_san_pham\n";
     for (int i{0}; i < mSoNhanVien; i++) {
         mpNhanVienSX[i].xuat();
     }

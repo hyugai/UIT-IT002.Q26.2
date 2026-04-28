@@ -29,7 +29,7 @@ double cDuongThang::getHangSo() const { return mHangSo; }
  * @param p Điểm cần kiểm tra
  * @return int -1(trái), 0(thuộc đường thẳng), 1(phải)
  * */
-int cDuongThang::isDiemThuocDuongThang(cDiem const &p) const {
+int cDuongThang::getViTriDiem(cDiem const &p) const {
     double val{mHeSoX * p.getX() + mHeSoY * p.getY() + mHangSo};
 
     if (val >= 0 && val < 1e-8)

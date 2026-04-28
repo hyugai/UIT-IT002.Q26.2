@@ -22,3 +22,21 @@ phan biet:
 Dang bai thi CK
     class diagram -> nhap, xuat
     Hoc 1 cach nhap, xuat
+
+2 điểm: Lý thuyết (10 phút)
+    Phân biệt private, public, protected
+        Khái niệm + Ví dụ (Code cụ thể)
+    Kế thừa (Inheritance)
+        Khái niệm + Ví dụ (Code cụ thể)
+
+3 điểm: Operator (10 phút)
+     Review code
+     Bài tập (tương tự Lab)
+        class diagram -> code (không cần dùng prototype)
+        ++ -> làm ++a, a++
+    Cho header file
+        Viết implementation
+
+     2013-2014 HK1
+     
+5 điểm: 

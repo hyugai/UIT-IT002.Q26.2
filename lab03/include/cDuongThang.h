@@ -13,7 +13,6 @@ class cDuongThang {
     double getHangSo() const;
 
     int isDiemThuocDuongThang(cDiem const &) const;
+    int getViTriDiem(cDiem const &) const;
     int isCatNhau(cDuongThang const &) const;
-    double calcKhoangCachToiDiem(cDiem const &) const;
-    double calcGocHopVoiDuongThang(cDuongThang const &) const;
 };

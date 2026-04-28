@@ -29,6 +29,17 @@ target_sources(cTamGiac
             cTamGiac.h
 )
 
+# ===== Task 2 ===== 
+add_library(cDaGiac)
+target_sources(cDaGiac
+    PRIVATE
+        ../src/cDaGiac.cpp
+    PUBLIC
+        FILE_SET HEADERS
+        FILES
+            cDaGiac.h
+)
+
 # ===== Task 4 ===== 
 add_library(cArray)
 target_sources(cArray
@@ -91,5 +102,6 @@ target_sources(cListNhanVienSX
         FILES
             cListNhanVienSX.h
 )
+
 target_link_libraries(cNhanVienSX PRIVATE cNgayThangNam)
 target_link_libraries(cListNhanVienSX PRIVATE cNhanVienSX)

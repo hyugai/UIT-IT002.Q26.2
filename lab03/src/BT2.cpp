@@ -1,38 +1,30 @@
-#include "../include/cArray.h"
+#include "../include/cDaGiac.h"
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    cArray arr;
-    arr.nhap();
+    cDaGiac poly;
+    poly.nhap();
 
-    cout << "\n===== Liet ke =====\n";
-    arr.xuat();
+    cout << "\n===== Da Giac =====\n";
+    poly.xuat();
 
-    cout << "===== Thong ke so lan phan tu x xuat hien =====\n";
-    arr.countPhanTuX();
+    cout << "\n===== Tinh Tien =====\n";
+    cDaGiac translatedPoly{poly.tinhTien()};
+    translatedPoly.xuat();
 
-    cout << "===== Mang co tang dan hay khong =====\n";
-    cout << (arr.isTangDan() ? "Co" : "Khong") << endl;
+    cout << "\n===== Quay =====\n";
+    cDaGiac rotatedPoly{poly.tinhTien()};
+    rotatedPoly.xuat();
 
-    cout << "===== Phan tu le nho nhat =====\n";
-    int minLe{arr.findPhanTuLeNhoNhat()};
-    if (minLe)
-        cout << minLe << endl;
-    else
-        cout << "Khong co phan tu le\n";
+    cout << "\n===== Phong To =====\n";
+    cDaGiac scaledUpPoly{poly.phongTo()};
+    scaledUpPoly.xuat();
 
-    cout << "===== So nguyen to lon nhat =====\n";
-    int maxSoNguyenTo{arr.findSoNguyenToLonNhat()};
-    if (maxSoNguyenTo)
-        cout << maxSoNguyenTo << endl;
-    else
-        cout << "Khong co so nguyen to\n";
-
-    cout << "===== Mang sau khi sap xep theo thu tu tang dan =====\n";
-    arr.bubbleSort();
-    arr.xuat();
+    cout << "\n===== Thu Nho =====\n";
+    cDaGiac scaledDown{poly.thuNho()};
+    scaledDown.xuat();
 
     return 0;
 }

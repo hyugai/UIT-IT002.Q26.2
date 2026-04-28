@@ -78,21 +78,9 @@ void cNhanVienSX::nhap() {
  * @return void
  * */
 void cNhanVienSX::xuat() const {
-    // cout << "ID cua nhan vien: " << mId << endl;
-
-    // cout << "Ho va ten: " << mHoTen << endl;
-
-    // cout << "Ngay sinh: ";
-    // mNgaySinh.xuat();
-    // cout << endl;
-
-    // cout << "So san pham da gia cong: " << mSoSanPhamDaGiaCong << endl;
-
-    // cout << "Gia mot san pham: " << mGiaMotSanPham << endl;
-
-    cout << mId << '\t' << mHoTen << "\t\t";
+    cout << mId << "," << mHoTen << ",";
     mNgaySinh.xuat();
-    cout << '\t' << mSoSanPhamDaGiaCong << "\t\t" << mGiaMotSanPham << endl;
+    cout << "," << mSoSanPhamDaGiaCong << "," << mGiaMotSanPham << endl;
 }
 
 /* *

@@ -91,7 +91,7 @@ void cTamGiac::xuat() const {
  * @returnn bool true(3 điểm thẳng hàng), false(Ngược lại)
  * */
 bool cTamGiac::isTamGiac() {
-    return !cDuongThang{mpDiem[0], mpDiem[1]}.isDiemThuocDuongThang(mpDiem[2]);
+    return !cDuongThang{mpDiem[0], mpDiem[1]}.getViTriDiem(mpDiem[2]);
 }
 
 /* *
