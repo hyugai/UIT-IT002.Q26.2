@@ -13,11 +13,11 @@ cTamGiac::cTamGiac() {
 }
 
 // Copy Constructor: Khởi tạo 1 tam giác là bản sao của 1 tam giác khác
-cTamGiac::cTamGiac(cTamGiac const &oTamGiac) {
+cTamGiac::cTamGiac(cTamGiac const &tri) {
     mpDiem = new cDiem[MAX_SIDES];
 
     for (int i{0}; i < MAX_SIDES; i++)
-        mpDiem[i] = oTamGiac.mpDiem[i];
+        mpDiem[i] = tri.mpDiem[i];
 }
 
 // Destructor
