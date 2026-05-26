@@ -1,2 +1,0 @@
-/usr/bin/ar qc libbt3Lib.a CMakeFiles/bt3Lib.dir/DanhSachSV.cpp.o CMakeFiles/bt3Lib.dir/HoTen.cpp.o CMakeFiles/bt3Lib.dir/MaDinhDanh.cpp.o CMakeFiles/bt3Lib.dir/SVCaoDang.cpp.o CMakeFiles/bt3Lib.dir/SVDaiHoc.cpp.o CMakeFiles/bt3Lib.dir/SinhVien.cpp.o
-/usr/bin/ranlib libbt3Lib.a
