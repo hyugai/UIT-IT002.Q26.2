@@ -14,7 +14,17 @@ DanhSachKH::~DanhSachKH() {
  * @return istream &
  * */
 istream &operator>>(istream &is, DanhSachKH &rhs) {
-    is >> rhs.mACount >> rhs.mBCount >> rhs.mCCount;
+    do {
+        is >> rhs.mACount;
+    } while (rhs.mACount <= 0 || rhs.mACount >= 1000);
+
+    do {
+        is >> rhs.mBCount;
+    } while (rhs.mBCount <= 0 || rhs.mBCount >= 1000);
+
+    do {
+        is >> rhs.mCCount;
+    } while (rhs.mCCount <= 0 || rhs.mCCount >= 1000);
 
     delete[] rhs.mpA;
     rhs.mpA = new KHLoaiA[rhs.mACount];

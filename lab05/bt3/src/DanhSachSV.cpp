@@ -15,7 +15,13 @@ DanhSachSV::~DanhSachSV() {
  * @return istream &
  * */
 istream &operator>>(istream &is, DanhSachSV &rhs) {
-    is >> rhs.mCaoDangCount >> rhs.mDaiHocCount;
+    do {
+        is >> rhs.mCaoDangCount;
+    } while (rhs.mCaoDangCount <= 0);
+
+    do {
+        is >> rhs.mDaiHocCount;
+    } while (rhs.mDaiHocCount <= 0);
 
     delete[] rhs.mpCaoDang;
     rhs.mpCaoDang = new SVCaoDang[rhs.mCaoDangCount];

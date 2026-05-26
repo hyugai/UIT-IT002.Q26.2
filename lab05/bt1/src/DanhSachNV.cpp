@@ -22,6 +22,7 @@ istream &operator>>(istream &is, DanhSachNV &rhs) {
     do {
         is >> rhs.mSXCount;
     } while (rhs.mSXCount <= 0);
+
     do {
         is >> rhs.mVPCount;
     } while (rhs.mVPCount <= 0);

@@ -15,7 +15,13 @@ DanhSachNV::~DanhSachNV() {
  * @return istream &
  * */
 istream &operator>>(istream &is, DanhSachNV &rhs) {
-    is >> rhs.mLapTrinhCount >> rhs.mKiemChungCount;
+    do {
+        is >> rhs.mLapTrinhCount;
+    } while (rhs.mLapTrinhCount <= 0);
+
+    do {
+        is >> rhs.mKiemChungCount;
+    } while (rhs.mKiemChungCount <= 0);
 
     delete[] rhs.mpLapTrinh;
     rhs.mpLapTrinh = new NVLapTrinh[rhs.mLapTrinhCount];

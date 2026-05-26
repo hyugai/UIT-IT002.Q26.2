@@ -17,7 +17,17 @@ int DanhSachGD::getNhaPhoCount() const { return mNhaPhoCount; }
 int DanhSachGD::getCanHoChungCuCount() const { return mCanHoChungCuCount; }
 
 istream &operator>>(istream &is, DanhSachGD &rhs) {
-    is >> rhs.mDatCount >> rhs.mNhaPhoCount >> rhs.mCanHoChungCuCount;
+    do {
+        is >> rhs.mDatCount;
+    } while (rhs.mDatCount <= 0);
+
+    do {
+        is >> rhs.mNhaPhoCount;
+    } while (rhs.mNhaPhoCount <= 0);
+
+    do {
+        is >> rhs.mCanHoChungCuCount;
+    } while (rhs.mCanHoChungCuCount <= 0);
 
     delete[] rhs.mpDat;
     delete[] rhs.mpNhaPho;
