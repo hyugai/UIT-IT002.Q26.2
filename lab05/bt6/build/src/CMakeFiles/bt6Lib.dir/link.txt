@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbt6Lib.a CMakeFiles/bt6Lib.dir/DanhSachKH.cpp.o CMakeFiles/bt6Lib.dir/HoTen.cpp.o CMakeFiles/bt6Lib.dir/KHLoaiA.cpp.o CMakeFiles/bt6Lib.dir/KHLoaiB.cpp.o CMakeFiles/bt6Lib.dir/KHLoaiC.cpp.o CMakeFiles/bt6Lib.dir/KhachHang.cpp.o CMakeFiles/bt6Lib.dir/MaDinhDanh.cpp.o
+/usr/bin/ranlib libbt6Lib.a

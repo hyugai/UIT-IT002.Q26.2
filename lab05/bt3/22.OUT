@@ -1,0 +1,81 @@
+> Danh sach sinh vien cao dang:
+SVCD01
+Nguyen Van An
+23 Ly Thuong Kiet Quan 10
+125
+7.5
+6
+
+
+SVCD02
+Tran Thi Binh
+56 CMT8 Quan 3
+115
+4.8
+4.5
+
+
+> Danh sach sinh vien dai hoc:
+SVDH01
+Le Van Cuong
+89 Dien Bien Phu Binh Thanh
+180
+8.5
+Luan van Big Data
+9
+
+
+SVDH02
+Pham Minh Danh
+2 Hoang Dieu Thu Duc
+170
+5.2
+Luan van Game
+4
+
+
+> Danh sach sinh vien du dieu kien tot nghiep:
+SVCD01
+Nguyen Van An
+23 Ly Thuong Kiet Quan 10
+125
+7.5
+6
+SVDH01
+Le Van Cuong
+89 Dien Bien Phu Binh Thanh
+180
+8.5
+Luan van Big Data
+9
+> Danh sach sinh vien khong du dieu kien tot nghiep:
+SVCD02
+Tran Thi Binh
+56 CMT8 Quan 3
+115
+4.8
+4.5
+SVDH02
+Pham Minh Danh
+2 Hoang Dieu Thu Duc
+170
+5.2
+Luan van Game
+4
+> Sinh vien DH co diem TB cao nhat:
+SVDH01
+Le Van Cuong
+89 Dien Bien Phu Binh Thanh
+180
+8.5
+Luan van Big Data
+9
+> Sinh vien CD co diem TB cao nhat:
+SVCD01
+Nguyen Van An
+23 Ly Thuong Kiet Quan 10
+125
+7.5
+6
+> So sinh vien CD khong du dieu kien tot nghiep: 1
+> So sinh vien DH khong du dieu kien tot nghiep: 1

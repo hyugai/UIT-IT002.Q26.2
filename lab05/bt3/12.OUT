@@ -1,0 +1,67 @@
+> Danh sach sinh vien cao dang:
+SVCD01
+Doan Van Giang
+52 Cao Thang Quan 3
+130
+8
+8.5
+
+
+> Danh sach sinh vien dai hoc:
+SVDH01
+Tang Thanh Ha
+8 Dong Khoi Quan 1
+175
+9
+Luan van AI
+9.5
+
+
+SVDH02
+Quach Gia Phuc
+05 Nguyen Tri Phuong Quan 10
+185
+9
+Luan van Cloud
+9
+
+
+> Danh sach sinh vien du dieu kien tot nghiep:
+SVCD01
+Doan Van Giang
+52 Cao Thang Quan 3
+130
+8
+8.5
+SVDH01
+Tang Thanh Ha
+8 Dong Khoi Quan 1
+175
+9
+Luan van AI
+9.5
+SVDH02
+Quach Gia Phuc
+05 Nguyen Tri Phuong Quan 10
+185
+9
+Luan van Cloud
+9
+> Danh sach sinh vien khong du dieu kien tot nghiep:
+> Sinh vien DH co diem TB cao nhat:
+SVDH01
+Tang Thanh Ha
+8 Dong Khoi Quan 1
+175
+9
+Luan van AI
+9.5
+> Sinh vien CD co diem TB cao nhat:
+SVCD01
+Doan Van Giang
+52 Cao Thang Quan 3
+130
+8
+8.5
+> So sinh vien CD khong du dieu kien tot nghiep: 0
+> So sinh vien DH khong du dieu kien tot nghiep: 0

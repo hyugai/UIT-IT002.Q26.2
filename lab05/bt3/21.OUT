@@ -1,0 +1,65 @@
+> Danh sach sinh vien cao dang:
+SVCD01
+Bui Minh Quan
+4 Le Hong Phong Quan 5
+110
+4
+3
+
+
+SVCD02
+Dinh Lan Khue
+1 Hai Ba Trung Quan 3
+130
+7.5
+4.5
+
+
+> Danh sach sinh vien dai hoc:
+SVDH01
+Lam Thanh Loc
+4 Thao Dien Quan 2
+165
+8
+Luan van Blockchain
+8.5
+
+
+> Danh sach sinh vien du dieu kien tot nghiep:
+SVDH01
+Lam Thanh Loc
+4 Thao Dien Quan 2
+165
+8
+Luan van Blockchain
+8.5
+> Danh sach sinh vien khong du dieu kien tot nghiep:
+SVCD01
+Bui Minh Quan
+4 Le Hong Phong Quan 5
+110
+4
+3
+SVCD02
+Dinh Lan Khue
+1 Hai Ba Trung Quan 3
+130
+7.5
+4.5
+> Sinh vien DH co diem TB cao nhat:
+SVDH01
+Lam Thanh Loc
+4 Thao Dien Quan 2
+165
+8
+Luan van Blockchain
+8.5
+> Sinh vien CD co diem TB cao nhat:
+SVCD02
+Dinh Lan Khue
+1 Hai Ba Trung Quan 3
+130
+7.5
+4.5
+> So sinh vien CD khong du dieu kien tot nghiep: 1
+> So sinh vien DH khong du dieu kien tot nghiep: 0

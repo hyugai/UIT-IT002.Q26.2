@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbt1Lib.a CMakeFiles/bt1Lib.dir/DanhSachNV.cpp.o CMakeFiles/bt1Lib.dir/Date.cpp.o CMakeFiles/bt1Lib.dir/HoTen.cpp.o CMakeFiles/bt1Lib.dir/MaDinhDanh.cpp.o CMakeFiles/bt1Lib.dir/NVSanXuat.cpp.o CMakeFiles/bt1Lib.dir/NVVanPhong.cpp.o CMakeFiles/bt1Lib.dir/NhanVien.cpp.o
+/usr/bin/ranlib libbt1Lib.a

@@ -1,0 +1,51 @@
+> Danh sach sinh vien cao dang:
+SVCD01
+Hoang Ngoan Em
+9 Nguyen Hue Quan 1
+120
+5
+5
+
+
+> Danh sach sinh vien dai hoc:
+SVDH01
+Vu Hoang Tuan
+3 Phan Dang Luu Phu Nhuan
+170
+5
+Luan van Vi mach
+5
+
+
+> Danh sach sinh vien du dieu kien tot nghiep:
+SVCD01
+Hoang Ngoan Em
+9 Nguyen Hue Quan 1
+120
+5
+5
+SVDH01
+Vu Hoang Tuan
+3 Phan Dang Luu Phu Nhuan
+170
+5
+Luan van Vi mach
+5
+> Danh sach sinh vien khong du dieu kien tot nghiep:
+> Sinh vien DH co diem TB cao nhat:
+SVDH01
+Vu Hoang Tuan
+3 Phan Dang Luu Phu Nhuan
+170
+5
+Luan van Vi mach
+5
+> Sinh vien CD co diem TB cao nhat:
+SVCD01
+Hoang Ngoan Em
+9 Nguyen Hue Quan 1
+120
+5
+5
+> So sinh vien CD khong du dieu kien tot nghiep: 0
+> So sinh vien DH khong du dieu kien tot nghiep: 0

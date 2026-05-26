@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbt4Lib.a CMakeFiles/bt4Lib.dir/DanhSachNV.cpp.o CMakeFiles/bt4Lib.dir/Email.cpp.o CMakeFiles/bt4Lib.dir/HoTen.cpp.o CMakeFiles/bt4Lib.dir/MaDinhDanh.cpp.o CMakeFiles/bt4Lib.dir/NVKiemChung.cpp.o CMakeFiles/bt4Lib.dir/NVLapTrinh.cpp.o CMakeFiles/bt4Lib.dir/NhanVien.cpp.o CMakeFiles/bt4Lib.dir/SoDienThoai.cpp.o
+/usr/bin/ranlib libbt4Lib.a

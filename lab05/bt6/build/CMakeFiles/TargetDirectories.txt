@@ -1,0 +1,8 @@
+/home/cookies/Projects/it002/labs/lab05/bt6/build/CMakeFiles/main.dir
+/home/cookies/Projects/it002/labs/lab05/bt6/build/CMakeFiles/edit_cache.dir
+/home/cookies/Projects/it002/labs/lab05/bt6/build/CMakeFiles/rebuild_cache.dir
+/home/cookies/Projects/it002/labs/lab05/bt6/build/include/CMakeFiles/edit_cache.dir
+/home/cookies/Projects/it002/labs/lab05/bt6/build/include/CMakeFiles/rebuild_cache.dir
+/home/cookies/Projects/it002/labs/lab05/bt6/build/src/CMakeFiles/bt6Lib.dir
+/home/cookies/Projects/it002/labs/lab05/bt6/build/src/CMakeFiles/edit_cache.dir
+/home/cookies/Projects/it002/labs/lab05/bt6/build/src/CMakeFiles/rebuild_cache.dir
